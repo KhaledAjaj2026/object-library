@@ -1,25 +1,74 @@
 const bookLibrary = [
-	// {
-	// 	title: 'The Hobbit',
-	// 	author: 'J.R.R. Tolkien',
-	// 	genre: 'Fantasy',
-	// 	pageCount: '295',
-	// 	readOrNot: true,
-	// },
-	// {
-	// 	title: 'White Fang',
-	// 	author: 'Jack London',
-	// 	genre: 'Adventure Fiction',
-	// 	pageCount: '298',
-	// 	readOrNot: false,
-	// },
-	// {
-	// 	title: 'The Hobbit',
-	// 	author: 'J.R.R. Tolkien',
-	// 	genre: 'Fantasy',
-	// 	pageCount: '295',
-	// 	readOrNot: 'read',
-	// },
+	{
+		title: 'The Hobbit',
+		author: 'J.R.R. Tolkien',
+		genre: 'Fantasy',
+		pageCount: '295',
+		readOrNot: true,
+	},
+	{
+		title: 'White Fang',
+		author: 'Jack London',
+		genre: 'Adventure Fiction',
+		pageCount: '298',
+		readOrNot: false,
+	},
+	{
+		title: 'The Hobbit',
+		author: 'J.R.R. Tolkien',
+		genre: 'Fantasy',
+		pageCount: '295',
+		readOrNot: 'read',
+	},
+	{
+		title: 'The Hobbit',
+		author: 'J.R.R. Tolkien',
+		genre: 'Fantasy',
+		pageCount: '295',
+		readOrNot: true,
+	},
+	{
+		title: 'White Fang',
+		author: 'Jack London',
+		genre: 'Adventure Fiction',
+		pageCount: '298',
+		readOrNot: false,
+	},
+	{
+		title: 'The Hobbit',
+		author: 'J.R.R. Tolkien',
+		genre: 'Fantasy',
+		pageCount: '295',
+		readOrNot: true,
+	},
+	{
+		title: 'White Fang',
+		author: 'Jack London',
+		genre: 'Adventure Fiction',
+		pageCount: '298',
+		readOrNot: false,
+	},
+	{
+		title: 'White Fang',
+		author: 'Jack London',
+		genre: 'Adventure Fiction',
+		pageCount: '298',
+		readOrNot: false,
+	},
+	{
+		title: 'White Fang',
+		author: 'Jack London',
+		genre: 'Adventure Fiction',
+		pageCount: '298',
+		readOrNot: false,
+	},
+	{
+		title: 'White Fang',
+		author: 'Jack London',
+		genre: 'Adventure Fiction',
+		pageCount: '298',
+		readOrNot: false,
+	},
 ];
 
 (function loadLibrary() {
@@ -79,11 +128,11 @@ function Book(title, author, genre, pageCount, readOrNot) {
 
 function createBook(title, author, genre, pageCount, readOrNot) {}
 
-function addBookToLibrary() {
+function openForm() {
 	document.querySelector('.new-book_form').classList.toggle('hidden');
 }
 
-function closeWindow() {
+function closeForm() {
 	const form = document.querySelector('.new-book_form');
 	form.reset();
 	form.classList.toggle('hidden');
