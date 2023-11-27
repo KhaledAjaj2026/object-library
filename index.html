@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Object Library</title>
+</head>
+
+<body>
+    <h1>Object Library</h1>
+    <hr>
+    <button type="button" class="add-book" onclick="addBookToLibrary()">Add Book</button>
+    <form action="" class="new-book_form hidden">
+        <h2 class="input-header">
+            Enter Book Details
+        </h2>
+        <button type="button" class="close-window" onclick="closeWindow()">X</button>
+        <div class="item">
+            <label for="title" class="item-label">Title</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div class="item">
+            <label for="author" class="item-label">Author</label>
+            <input type="text" name="author" id="author" required>
+        </div>
+        <div class="item">
+            <label for="genre" class="item-label">Genre</label>
+            <input type="text" name="genre" id="genre" required>
+        </div>
+        <div class="item">
+            <label for="page-count" class="item-label">Page Count</label>
+            <input type="number" name="page-count" id="page-count" required>
+        </div>
+        <div class="item">
+            <label for="read-or-not" class="item-label">Un/Read</label>
+            <div id="read-or-not">
+                <input type="radio" name="read-or-not" id="read" value="true" required>
+                <label for="read">Read</label>
+                <input type="radio" name="read-or-not" id="not-read" value="false" required>
+                <label for="not-read">Not Read</label>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-new-book" onclick="addBookToLibrary()">Submit</button>
+    </form>
+    <div class="container"></div>
+</body>
+
+</html>
