@@ -1,88 +1,11 @@
-const bookLibrary = [
-	{
-		title: 'The Hobbit',
-		author: 'J.R.R. Tolkien',
-		genre: 'Fantasy',
-		pageCount: '295',
-		readOrNot: true,
-	},
-	{
-		title: 'White Fang',
-		author: 'Jack London',
-		genre: 'Adventure Fiction',
-		pageCount: '298',
-		readOrNot: false,
-	},
-	{
-		title: 'The Hobbit',
-		author: 'J.R.R. Tolkien',
-		genre: 'Fantasy',
-		pageCount: '295',
-		readOrNot: 'read',
-	},
-	{
-		title: 'The Hobbit',
-		author: 'J.R.R. Tolkien',
-		genre: 'Fantasy',
-		pageCount: '295',
-		readOrNot: true,
-	},
-	{
-		title: 'White Fang',
-		author: 'Jack London',
-		genre: 'Adventure Fiction',
-		pageCount: '298',
-		readOrNot: false,
-	},
-	{
-		title: 'The Hobbit',
-		author: 'J.R.R. Tolkien',
-		genre: 'Fantasy',
-		pageCount: '295',
-		readOrNot: true,
-	},
-	{
-		title: 'White Fang',
-		author: 'Jack London',
-		genre: 'Adventure Fiction',
-		pageCount: '298',
-		readOrNot: false,
-	},
-	{
-		title: 'White Fang',
-		author: 'Jack London',
-		genre: 'Adventure Fiction',
-		pageCount: '298',
-		readOrNot: false,
-	},
-	{
-		title: 'White Fang',
-		author: 'Jack London',
-		genre: 'Adventure Fiction',
-		pageCount: '298',
-		readOrNot: false,
-	},
-	{
-		title: 'White Fang',
-		author: 'Jack London',
-		genre: 'Adventure Fiction',
-		pageCount: '298',
-		readOrNot: false,
-	},
-];
+const bookLibrary = [];
 
-(function loadLibrary() {
-	const container = document.querySelector('.container');
-
+function loadLibrary() {
 	if (bookLibrary.length) {
 		for (const book of bookLibrary) {
+			const container = document.querySelector('.container');
 			const newCard = document.createElement('div');
 			newCard.setAttribute('class', 'card');
-
-			// const cardText = `${book.title}\n${book.author}\n${book.genre}\n${
-			// 	book.pageCount
-			// }\n${book.readOrNot ? 'read' : 'not read'}`;
-			// newCard.innerText = cardText;
 
 			const newTitle = document.createElement('h3');
 			newTitle.setAttribute('class', 'title');
@@ -102,8 +25,7 @@ const bookLibrary = [
 
 			const newRead = document.createElement('p');
 			newRead.setAttribute('class', 'read-or-not');
-			if (book.readOrNot) newRead.textContent = 'read';
-			else newRead.textContent = 'not read';
+			newRead.textContent = book.readOrNot;
 
 			newCard.appendChild(newTitle);
 			newCard.appendChild(newAuthor);
@@ -113,12 +35,11 @@ const bookLibrary = [
 
 			container.appendChild(newCard);
 		}
-	} else {
-		container.textContent = 'no books here!';
 	}
-})();
+}
 
-function Book(title, author, genre, pageCount, readOrNot) {
+function Book(id, title, author, genre, pageCount, readOrNot) {
+	this.id = id;
 	this.title = title;
 	this.author = author;
 	this.genre = genre;
@@ -126,14 +47,33 @@ function Book(title, author, genre, pageCount, readOrNot) {
 	this.readOrNot = readOrNot;
 }
 
-function createBook(title, author, genre, pageCount, readOrNot) {}
+const createBook = (formProps) => {
+	const newBook = new Book(
+		bookLibrary.length,
+		formProps.title,
+		formProps.author,
+		formProps.genre,
+		formProps['page-count'],
+		formProps['read-or-not']
+	);
+	bookLibrary.push(newBook);
+	loadLibrary();
+};
 
-function openForm() {
+const openForm = () => {
 	document.querySelector('.new-book_form').classList.toggle('hidden');
-}
+};
 
-function closeForm() {
+const closeForm = () => {
 	const form = document.querySelector('.new-book_form');
 	form.reset();
 	form.classList.toggle('hidden');
-}
+};
+
+addEventListener('submit', (event) => {
+	event.preventDefault();
+	const formData = new FormData(event.target);
+	const formProps = Object.fromEntries(formData);
+	createBook(formProps);
+	closeForm();
+});
