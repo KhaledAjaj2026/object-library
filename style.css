@@ -106,7 +106,7 @@ input[type=radio] {
     margin: 0;
 }
 
-.add-book, .submit-new-book {
+.add-book, .submit-new-book, .delete-button {
     margin-top: 2rem;
     border: 5px double black;
     padding: 5px;
@@ -117,17 +117,22 @@ input[type=radio] {
     cursor: pointer;
 }
 
-.add-book:hover, .submit-new-book:hover {
+.add-book:hover, .submit-new-book:hover, .delete-button:hover {
     background-color: #a86335;
 }
 
-.add-book:active, .submit-new-book:active {
+.add-book:active, .submit-new-book:active, .delete-button:active {
     background-color: #764320;
 }
 
 .add-book {
     margin-top: 0;
     margin-bottom: 3rem;
+}
+
+.delete-button {
+    margin: 0;
+    font-size: 1rem;
 }
 
 .hidden {
